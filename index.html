@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto-TA | AI Exam Paper Generator</title>
+  <meta name="description" content="Agentic AI-powered exam paper generator. Enter your subject, marks, and difficulty — our multi-agent system builds a full exam paper instantly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="bg-grid"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-text">Auto<span class="logo-accent">TA</span></span>
+      </div>
+      <nav class="nav">
+        <a href="#workflow" class="nav-link">Workflow</a>
+        <a href="#generator" class="nav-link">Generator</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        Multi-Agent AI
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Powered by Multi-Agent Orchestration
+      </div>
+      <h1 class="hero-title">
+        Generate <span class="gradient-text">Exam Papers</span><br/>
+        with Agentic AI
+      </h1>
+      <p class="hero-subtitle">
+        Enter your subject, total marks, difficulty, and topic — our parallel AI agents draft theory questions, coding tasks, and mathematical problems simultaneously, then compile them into a polished exam paper.
+      </p>
+      <div class="hero-cta">
+        <a href="#generator" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Generate Exam Paper
+        </a>
+        <a href="#workflow" class="btn btn-ghost">View Architecture</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Parallel Agents</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">~8s</span><span class="stat-label">Generation Time</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">HITL</span><span class="stat-label">Review Loop</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="workflow-mini">
+        <div class="wm-node wm-input">
+          <div class="wm-icon">👤</div>
+          <div class="wm-label">Input</div>
+        </div>
+        <div class="wm-arrow"></div>
+        <div class="wm-node wm-manager">
+          <div class="wm-icon">🔀</div>
+          <div class="wm-label">Manager</div>
+        </div>
+        <div class="wm-fanout">
+          <div class="wm-branch">
+            <div class="wm-node wm-agent agent-a"><div class="wm-icon">✍️</div><div class="wm-label">Concept</div></div>
+          </div>
+          <div class="wm-branch">
+            <div class="wm-node wm-agent agent-b"><div class="wm-icon">💻</div><div class="wm-label">Coder</div></div>
+          </div>
+          <div class="wm-branch">
+            <div class="wm-node wm-agent agent-c"><div class="wm-icon">∑</div><div class="wm-label">Math</div></div>
+          </div>
+        </div>
+        <div class="wm-arrow"></div>
+        <div class="wm-node wm-editor">
+          <div class="wm-icon">📝</div>
+          <div class="wm-label">Editor</div>
+        </div>
+        <div class="wm-arrow"></div>
+        <div class="wm-node wm-review">
+          <div class="wm-icon">✅</div>
+          <div class="wm-label">Review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Architecture Section -->
+  <section class="workflow-section" id="workflow">
+    <div class="section-header">
+      <div class="section-tag">Architecture</div>
+      <h2 class="section-title">Multi-Agent Workflow</h2>
+      <p class="section-sub">Inspired by parallel execution & human-in-the-loop design patterns</p>
+    </div>
+
+    <div class="workflow-diagram">
+      <!-- Step 1: Input -->
+      <div class="wf-stage" id="wf-input">
+        <div class="wf-card input-card">
+          <div class="wf-card-icon">👤</div>
+          <h3>Professor Input</h3>
+          <p>Subject name, total marks, difficulty, and topic prompt</p>
+          <div class="wf-status received">RECEIVED</div>
+        </div>
+      </div>
+
+      <div class="wf-connector"><div class="connector-line"></div><div class="connector-arrow">▶</div></div>
+
+      <!-- Step 2: Manager -->
+      <div class="wf-stage" id="wf-manager">
+        <div class="wf-card manager-card">
+          <div class="wf-card-icon">🔀</div>
+          <h3>The Manager</h3>
+          <p class="wf-role">Router Agent</p>
+          <p>Analyzes prompt, delegates work in parallel</p>
+        </div>
+      </div>
+
+      <!-- Fan-Out Label -->
+      <div class="fanout-label">
+        <div class="fanout-arrow-group">↗ ↑ ↘</div>
+        <span>FAN-OUT (Parallel Execution)</span>
+      </div>
+
+      <!-- Step 3: Parallel Agents -->
+      <div class="wf-parallel">
+        <div class="wf-agent-card agent-concept">
+          <div class="agent-header">
+            <div class="agent-icon">✍️</div>
+            <div>
+              <h4>Agent A: The Concept Writer</h4>
+              <p class="agent-task">Task: Drafting Theory (SAQ & MCQ)</p>
+            </div>
+          </div>
+          <div class="agent-preview">
+            <div class="code-line">Q1. Explain Gini Impurity...</div>
+            <div class="code-line">Q2. Define entropy in ML...</div>
+            <div class="code-line">Q3. Compare SVM vs. KNN...</div>
+          </div>
+          <div class="agent-progress">
+            <span class="progress-label">Status: <span class="active">Active (25%)</span></span>
+            <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-agent-card agent-programmer">
+          <div class="agent-header">
+            <div class="agent-icon">💻</div>
+            <div>
+              <h4>Agent B: The Programmer</h4>
+              <p class="agent-task">Task: Generating Code Tasks</p>
+            </div>
+          </div>
+          <div class="agent-preview code-preview">
+            <div class="code-line"><span class="kw">import</span> sklearn</div>
+            <div class="code-line">RFClassifier()</div>
+            <div class="code-line"><span class="kw">estimator</span> = RFClassifier...</div>
+          </div>
+          <div class="agent-progress">
+            <span class="progress-label">Status: <span class="active">Active (30%)</span></span>
+            <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-agent-card agent-math">
+          <div class="agent-header">
+            <div class="agent-icon">∑</div>
+            <div>
+              <h4>Agent C: The Mathematician</h4>
+              <p class="agent-task">Task: Creating Numerical Problems</p>
+            </div>
+          </div>
+          <div class="agent-preview math-preview">
+            <div class="code-line">Σ G(S), 1 - Σ p²ᵢ</div>
+            <div class="code-line">Entropy = -Σ pᵢ log(pᵢ)</div>
+            <div class="code-line">Gini = 1 - Σ(pᵢ)²</div>
+          </div>
+          <div class="agent-progress">
+            <span class="progress-label">Status: <span class="active">Active (20%)</span></span>
+            <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fan-In -->
+      <div class="fanout-label">
+        <div class="fanout-arrow-group">↘ ↓ ↗</div>
+        <span>FAN-IN (Aggregation)</span>
+      </div>
+
+      <!-- Step 4: Editor -->
+      <div class="wf-stage" id="wf-editor">
+        <div class="wf-card editor-card">
+          <div class="wf-card-icon">📝</div>
+          <h3>The Editor</h3>
+          <p class="wf-role">Compiler Agent</p>
+          <p>Gather Drafts, Compile & Format (Total Marks)</p>
+        </div>
+      </div>
+
+      <div class="wf-connector"><div class="connector-line"></div><div class="connector-arrow">▶</div></div>
+
+      <!-- Step 5: Checkpoint -->
+      <div class="wf-stage" id="wf-checkpoint">
+        <div class="wf-card checkpoint-card">
+          <div class="wf-card-icon">⏸️</div>
+          <h3>The Checkpoint</h3>
+          <p class="wf-role">Human-in-the-Loop</p>
+          <div class="wf-status paused">System PAUSED — HITL Review Required</div>
+        </div>
+      </div>
+
+      <div class="wf-connector"><div class="connector-line"></div><div class="connector-arrow">▶</div></div>
+
+      <!-- Step 6: Professor UI -->
+      <div class="wf-stage" id="wf-review">
+        <div class="wf-card review-card">
+          <div class="wf-card-icon">🎓</div>
+          <h3>Professor Feedback UI</h3>
+          <div class="feedback-btns">
+            <button class="fb-btn approve">✓ Approve Exam</button>
+            <button class="fb-btn reject">✗ Reject & Revise</button>
+          </div>
+          <div class="feedback-loop">⟳ Iterative Feedback Loop</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generator Section -->
+  <section class="generator-section" id="generator">
+    <div class="section-header">
+      <div class="section-tag">Generate</div>
+      <h2 class="section-title">Create Your Exam Paper</h2>
+      <p class="section-sub">Fill in the details and watch our agents work in parallel</p>
+    </div>
+
+    <div class="generator-layout">
+      <!-- Input Panel -->
+      <div class="input-panel glass-card">
+        <div class="panel-header">
+          <div class="panel-icon">🎓</div>
+          <div>
+            <h3>Exam Configuration</h3>
+            <p>Professor Input → Manager Agent</p>
+          </div>
+        </div>
+
+        <form id="examForm" class="exam-form">
+          <div class="form-group">
+            <label for="subjectName">Subject Name <span class="required">*</span></label>
+            <input type="text" id="subjectName" name="subjectName" placeholder="e.g. Machine Learning, Data Structures..." required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="totalMarks">Total Marks <span class="required">*</span></label>
+              <input type="number" id="totalMarks" name="totalMarks" placeholder="50" min="10" max="200" value="50" required />
+            </div>
+            <div class="form-group">
+              <label for="duration">Duration (mins)</label>
+              <input type="number" id="duration" name="duration" placeholder="180" min="30" max="360" value="180" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="difficulty">Difficulty Level</label>
+              <select id="difficulty" name="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="examType">Exam Type</label>
+              <select id="examType" name="examType">
+                <option value="university">University Exam</option>
+                <option value="midterm" selected>Mid-Term</option>
+                <option value="final">Final Exam</option>
+                <option value="quiz">Quiz</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="topicFocus">Topic Focus / Additional Instructions</label>
+            <textarea id="topicFocus" name="topicFocus" rows="3" placeholder="e.g. Focus on Random Forests, decision trees, and ensemble methods. Include at least 2 numerical problems..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Question Types to Include</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" name="qTypes" value="mcq" checked />
+                <span class="checkmark"></span>
+                MCQ (Multiple Choice)
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="qTypes" value="saq" checked />
+                <span class="checkmark"></span>
+                Short Answer
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="qTypes" value="long" checked />
+                <span class="checkmark"></span>
+                Long Answer
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="qTypes" value="code" />
+                <span class="checkmark"></span>
+                Coding Problems
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="qTypes" value="numerical" />
+                <span class="checkmark"></span>
+                Numerical Problems
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="university">University / Institution Name</label>
+            <input type="text" id="university" name="university" placeholder="e.g. MIT, IIT Bombay..." />
+          </div>
+
+          <button type="submit" class="btn btn-primary generate-btn" id="generateBtn">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Generate Exam Paper</span>
+            <span class="btn-loader" style="display:none">
+              <span class="spinner"></span> Agents Working...
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Agent Status Panel -->
+      <div class="agent-status-panel">
+        <div class="glass-card agent-pipeline" id="agentPipeline">
+          <div class="panel-header">
+            <div class="panel-icon">🔀</div>
+            <div>
+              <h3>Agent Pipeline</h3>
+              <p>Real-time execution status</p>
+            </div>
+          </div>
+
+          <div class="pipeline-stages">
+            <div class="pipeline-step" id="step-manager">
+              <div class="step-indicator idle" id="ind-manager">
+                <span class="step-num">1</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Manager Agent</div>
+                <div class="step-desc">Analyzing prompt & routing</div>
+                <div class="step-status" id="status-manager">Idle</div>
+              </div>
+            </div>
+
+            <div class="pipeline-step fanout-indicator">
+              <div class="fanout-icon">⚡ FAN-OUT →</div>
+            </div>
+
+            <div class="pipeline-step" id="step-concept">
+              <div class="step-indicator idle" id="ind-concept">
+                <span>✍️</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Concept Writer Agent</div>
+                <div class="step-desc">Drafting theory & SAQ/MCQ</div>
+                <div class="step-status" id="status-concept">Idle</div>
+              </div>
+            </div>
+
+            <div class="pipeline-step" id="step-programmer">
+              <div class="step-indicator idle" id="ind-programmer">
+                <span>💻</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Programmer Agent</div>
+                <div class="step-desc">Generating coding tasks</div>
+                <div class="step-status" id="status-programmer">Idle</div>
+              </div>
+            </div>
+
+            <div class="pipeline-step" id="step-math">
+              <div class="step-indicator idle" id="ind-math">
+                <span>∑</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Mathematician Agent</div>
+                <div class="step-desc">Creating numerical problems</div>
+                <div class="step-status" id="status-math">Idle</div>
+              </div>
+            </div>
+
+            <div class="pipeline-step fanout-indicator">
+              <div class="fanout-icon">⚡ FAN-IN →</div>
+            </div>
+
+            <div class="pipeline-step" id="step-editor">
+              <div class="step-indicator idle" id="ind-editor">
+                <span>📝</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Editor Agent</div>
+                <div class="step-desc">Compiling & formatting paper</div>
+                <div class="step-status" id="status-editor">Idle</div>
+              </div>
+            </div>
+
+            <div class="pipeline-step" id="step-review">
+              <div class="step-indicator idle" id="ind-review">
+                <span>🎓</span>
+              </div>
+              <div class="step-content">
+                <div class="step-title">Human Review (HITL)</div>
+                <div class="step-desc">Awaiting professor approval</div>
+                <div class="step-status" id="status-review">Idle</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live log -->
+        <div class="glass-card agent-log" id="agentLog">
+          <div class="panel-header">
+            <div class="panel-icon">📡</div>
+            <div>
+              <h3>Agent Log</h3>
+              <p>Live execution trace</p>
+            </div>
+          </div>
+          <div class="log-output" id="logOutput">
+            <div class="log-line system">► System ready. Waiting for input...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Result Section -->
+  <section class="result-section" id="resultSection" style="display:none">
+    <div class="section-header">
+      <div class="section-tag">✓ Draft Ready</div>
+      <h2 class="section-title">Generated Exam Paper</h2>
+      <p class="section-sub">Review, approve, or send feedback to revise</p>
+    </div>
+
+    <!-- HITL Review Bar -->
+    <div class="hitl-bar glass-card" id="hitlBar">
+      <div class="hitl-left">
+        <div class="checkpoint-badge">
+          <span class="cp-icon">⏸</span>
+          <div>
+            <div class="cp-title">The Checkpoint — Human-in-the-Loop</div>
+            <div class="cp-sub">System paused. Professor review required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hitl-actions">
+        <button class="btn btn-success" id="approveBtn" onclick="approvePaper()">✓ Approve & Download</button>
+        <button class="btn btn-danger" id="rejectBtn" onclick="showFeedbackModal()">✗ Reject & Revise</button>
+      </div>
+    </div>
+
+    <!-- Paper Preview -->
+    <div class="paper-container glass-card" id="paperContainer">
+      <div id="examPaperContent"></div>
+    </div>
+  </section>
+
+  <!-- Feedback Modal -->
+  <div class="modal-overlay" id="feedbackModal" style="display:none">
+    <div class="modal glass-card">
+      <div class="modal-header">
+        <h3>⟳ Revision Feedback</h3>
+        <button class="modal-close" onclick="closeFeedbackModal()">✕</button>
+      </div>
+      <p>Describe what changes you'd like the agents to make:</p>
+      <textarea id="feedbackText" rows="4" placeholder="e.g. The math question is too easy, make it advanced level. Add more MCQs..."></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeFeedbackModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitFeedback()">
+          ⚡ Re-run Agents with Feedback
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="section-header">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">The Technology Stack</h2>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card glass-card">
+        <div class="tech-icon">🧠</div>
+        <h4>LangGraph Orchestration</h4>
+        <p>Multi-agent graph with supervisor routing, parallel execution fan-out, and state management.</p>
+      </div>
+      <div class="tech-card glass-card">
+        <div class="tech-icon">⚡</div>
+        <h4>Parallel Fan-Out</h4>
+        <p>Three specialist agents (Concept, Coder, Math) run simultaneously, reducing generation time by 3×.</p>
+      </div>
+      <div class="tech-card glass-card">
+        <div class="tech-icon">🔄</div>
+        <h4>Human-in-the-Loop</h4>
+        <p>HITL checkpoint pauses the graph for professor review. Feedback triggers iterative re-runs.</p>
+      </div>
+      <div class="tech-card glass-card">
+        <div class="tech-icon">📝</div>
+        <h4>Editor Compiler</h4>
+        <p>Single compilation pass aggregates all agent outputs into a clean, formatted exam paper JSON.</p>
+      </div>
+      <div class="tech-card glass-card">
+        <div class="tech-icon">🔀</div>
+        <h4>Deterministic Router</h4>
+        <p>The Manager Agent uses programmatic routing (no LLM) to save API quota and ensure reliability.</p>
+      </div>
+      <div class="tech-card glass-card">
+        <div class="tech-icon">🌐</div>
+        <h4>Gemini + Web Search</h4>
+        <p>Google Gemini for compilation. Tavily Search for real-time subject knowledge retrieval.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-icon small">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="logo-text">Auto<span class="logo-accent">TA</span></span>
+      </div>
+      <p>AI-Powered Exam Paper Generator · Multi-Agent Workflow Architecture</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
